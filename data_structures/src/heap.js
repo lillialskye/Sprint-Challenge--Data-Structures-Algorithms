@@ -1,5 +1,19 @@
 const heapsort = function(arr) {
  
+ const heap = new Heap();
+ const sorted= new Array(arr.length);
+ //added in
+ for (let i = 0; i < arr.length; i++) {
+  heap.insert(arr[i]);
+  }
+
+  for (let i = arr.length -1; i > -1; i--) {
+   sorted[i] = heap.delete();
+  }
+
+  return sorted;
+ };
+
     var swap = function(arr, firstIndex, secondIndex) {
       var temp = arr[firstIndex];
       arr[firstIndex] = arr[secondIndex];
@@ -9,12 +23,10 @@ const heapsort = function(arr) {
       var l = 2 * i;
       var r = l + 1;
       var largest;
-      if (l < arr.heapSize && arr[l] > arr[i]) {
-        largest = l;
-      } else {
-        largest = i;
-      }
-      if (r < arr.heapSize && arr[r] > arr[largest]) {
+      if (l < array_length && input[l] > input[max]) {
+        max= l;
+      } 
+      if (r < arr.length && arr[r] > arr[largest]) {
         largest = r;
       }
       if (largest != i) {
@@ -35,8 +47,8 @@ const heapsort = function(arr) {
       maxHeap(arr, 0);
   
       document.getElementById("getHeapSort").innerHTML = document.getElementById("getHeapSort").innerHTML + a + "<br>";
-    }
-  };
+    };
+  
   var a = [55, 67, 10, 34, 25, 523, 1, -2];
   document.getElementById("getHeapSort").innerHTML = a + "<br>";
   heapSort(a);
